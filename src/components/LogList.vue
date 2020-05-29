@@ -92,6 +92,7 @@ export default {
 
         logsLengthAll(e){
           this.logPerPage = parseInt(e.target.options[e.target.options.selectedIndex].value)
+          this.pageNumber = 1
         },
 
         changePage(nextPageButton){
@@ -149,7 +150,7 @@ export default {
         },
 
         paginatedLogs(){
-          let fromPag =  this.pageNumber;
+          let fromPag =  (this.pageNumber -1) * this.logPerPage;
           let toPag = fromPag + this.logPerPage; 
           return this.filteredCourses.slice(fromPag, toPag)
         },
